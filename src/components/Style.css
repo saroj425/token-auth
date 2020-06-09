@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.login-screen {
+  max-width: 400px;
+  min-height: 400px;
+  background: #323232;
+  color: #fff;
+  border: 1px silid #fff;
+}
