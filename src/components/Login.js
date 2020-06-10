@@ -1,10 +1,15 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import "../index.css";
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
-    let loggedIn = false;
+    const token = localStorage.getItem("token");
+    let loggedIn = true;
+    if (token == null) {
+      loggedIn = false;
+    }
     this.state = {
       username: "",
       password: "",
@@ -21,8 +26,17 @@ export default class Login extends Component {
   submitForm(e) {
     e.preventDefault();
     const { username, password } = this.state;
+    if (username === "saroj" && password === "123456") {
+      localStorage.setItem("token", "abcdefghijk");
+      this.setState({
+        loggedIn: true,
+      });
+    }
   }
   render() {
+    if (this.state.loggedIn) {
+      return <Redirect to="/admin" />;
+    }
     return (
       <div className="login-screen">
         <h2>Login Page</h2>

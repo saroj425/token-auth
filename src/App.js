@@ -12,7 +12,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={Login} />
         <Route path="/admin" component={Admin} />
-        <Route path="/logout" component={Logout} />
+        <Route path="/" component={Logout} />
       </Switch>
     </BrowserRouter>
   );
